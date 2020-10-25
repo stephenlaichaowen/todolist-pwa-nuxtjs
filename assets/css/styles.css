@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+:root {
+  --theme-color: #1177da;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #444;
+  background-color: #fefefe;
+  /* background-image: linear-gradient(#fc6c48 0%, #ef5081 100%); */
+  background-color: #f4f7fc;
+  /* background-repeat: no-repeat;
+  background-size: cover; */
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+}
+
+.image {
+  position: relative;
+  height: 7.5rem;
+  background-color: var(--theme-color);
+}
+
+.image h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.app-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.625rem;
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translateX(-50%);
+  text-transform: uppercase;
+}
+
+.todo-wrapper {
+  /* height: 100vh; */
+  border-radius: 0.25rem;
+  /* padding: 2.5rem 1.25rem; */
+  padding: 1.5rem 1.25rem 2.5rem;
+  -webkit-box-shadow: 0 0 0.9375rem 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0.9375rem 0 rgba(0, 0, 0, 0.05);
+  background-color: #f4f7fc;
+  overflow: hidden;
+  position: relative;
+}
+
+.todo-title {
+  font-size: 0.8em;
+  /* color: rgba(255, 255, 255, 0.8); */
+  color: white;
+  /* color: #f65c65; */
+  font-weight: normal;
+  margin-left: 1rem;
+}
+
+form {
+  overflow: overlay;
+}
+
+form label {
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.btn, input {
+  line-height: 2em;
+  border-radius: 0.1875rem;
+  border: 0;
+  display: inline-block;
+  margin: 0.9375rem 0;
+  padding: 0.2em 1em;
+  font-size: 1em;
+}
+
+input[type='text'] {
+  border: 0.0625rem solid #ddd;
+  min-width: 80%;
+  transition: all ease-in 0.25s;
+}
+
+input:focus {
+  outline: none;
+  border: 0.0625rem solid #a3b1ff;
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+  font-style: italic;
+}
+
+.btn {
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  border-width: 0.0625rem;
+  border-style: solid;
+}
+
+.btn-add {
+  background: var(--theme-color);
+  /* background: #ddd; */
+  color: #fefefe;
+  border-color: #ddd;
+  min-width: 17%;
+  pointer-events: none;
+  transition: all ease-in 0.25s;
+  font-size: 2.2em;
+  line-height: 0.5em;
+  padding: 0.3em 0.3em;
+  float: right;
+}
+
+.btn-add.active {
+  /* background: #6664ff;
+  border-color: #6664ff; */
+  /* background: white; */
+  pointer-events: visible;
+}
+
+.btn-add.active:hover {
+  background: #4442f6;
+  border-color: #4442f6;
+}
+
+.btn-add:active {
+  transform: scale(0.95);
+}
+
+.control-buttons {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+}
+
+.btn-secondary {
+  display: inline-block;
+  position: relative;
+  border: 0;
+  padding: 0;
+  margin: 0 0.625rem;
+}
+
+.btn-secondary:after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0.1875rem;
+  background-color: #f4586e;
+  bottom: 0rem;
+  left: 0;
+  transition: all ease-in 0.25s;
+}
+
+.btn-secondary:hover:after {
+  width: 100%;
+}
+
+ul.todo-list {
+  padding: 0;
+  margin-bottom: 1.875rem;
+}
+
+ul.todo-list li {
+  position: relative;
+  list-style-type: none;
+  display: block;
+  margin: 0.625rem 0;
+  background: #e0e8f5;
+  border-radius: 0.1875rem;
+  padding-left: 2.375rem;
+  /* custom checkbox width + 16 */
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-right: 3.0625rem;
+  /* delete button + 5 */
+  overflow: hidden;
+}
+
+ul.todo-list.archived li {
+  background: #fff;
+}
+
+.todo-text {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.5em;
+  color: black;
+  /* color: var(--theme-color); */
+}
+
+ul.todo-list li .delete {
+  position: absolute;
+  height: 100%;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 0;
+  width: 0;
+  background-color: #f56468;
+  color: #fff;
+  transition: all ease-in 0.25s;
+}
+
+ul.todo-list li .delete:after {
+  position: absolute;
+  content: '';
+  width: 1rem;
+  height: 1rem;
+  top: 50%;
+  left: 50%;
+  background-image: url('https://nourabusoud.github.io/vue-todo-list/images/trash.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: translate(-50%, -50%) scale(0.5);
+  transition: all ease-in 0.25s;
+}
+
+ul.todo-list li:hover .delete {
+  width: 2.75rem;
+  opacity: 1;
+}
+
+ul.todo-list li:hover .delete:after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.todo-checkbox {
+  position: absolute;
+  opacity: 0;
+  display: none;
+}
+
+.todo-checkbox+label {
+  position: absolute;
+  cursor: pointer;
+  left: 0.625rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.375rem;
+  height: 1.375rem;
+  border-radius: 0.125rem;
+  border: 2px solid #1177fa;
+  background-color: #fff;
+}
+
+.todo-checkbox:checked+label:after {
+  position: absolute;
+  content: '';
+  top: 30%;
+  left: 50%;
+  height: 0.1875rem;
+  width: 0.375rem;
+  border: solid #fc6c48;
+  border-width: 0 0 0.125rem 0.125rem;
+  transform-origin: center center;
+  transform: rotate(-45deg) translate(-50%, -50%);
+}
+
+.todo-checkbox:checked+label:after {
+  display: block;
+}
+
+.todo-checkbox:checked~.todo-text {
+  color: #888;
+  text-decoration: line-through;
+}
+
+.status.free {
+  font-weight: bold;
+  text-align: center;
+  margin: 2.5rem 0;
+}
+
+.status.free img {
+  display: block;
+  width: 3.125rem;
+  margin: 0.625rem auto;
+  vertical-align: middle;
+}
+
+.todo-item-enter-active, .todo-item-leave-active {
+  transition: opacity ease 0.25s, transform ease-in-out 0.3s;
+  transform-origin: left center;
+}
+
+/* .todo-item-leave-active below version 2.1.8 */
+
+.todo-item-enter, .todo-item-leave-to {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.slide-fade-enter-active, .slide-fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+/* .slide-fade-leave-active below version 2.1.8 */
+
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: scale(1.1);
+  opacity: 0;
+}
+
+/* Footer */
+
+footer {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  bottom: 1.25rem;
+  left: 0;
+}
+
+footer a {
+  color: #fff;
+}
