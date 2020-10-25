@@ -7,6 +7,7 @@ export default {
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
+      { name: 'theme-color', content: '#4285f4'}
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0' },
       { name: '"mobile-web-app-capable', content: 'yes' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
@@ -23,6 +24,10 @@ export default {
   ],
 
   pwa: {
+    meta: {
+      themeColor: '#1177da'
+    },
+
     manifest: {
       name: 'My Awesome Todo List App',
       lang: 'en',
