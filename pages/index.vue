@@ -236,7 +236,8 @@ export default {
 
 .todo-title {
   font-size: 0.8em;
-  color: rgba(255, 255, 255, 0.8);
+  /* color: rgba(255, 255, 255, 0.8); */
+  color: white;
   /* color: #f65c65; */
   font-weight: normal;
   margin-left: 1rem;
