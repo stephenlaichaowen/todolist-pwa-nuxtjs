@@ -25,7 +25,8 @@ export default {
 
   pwa: {
     meta: {
-      themeColor: '#1177da'
+      themeColor: '#1177da',
+      appleMobileWebAppCapable: true
     },
 
     manifest: {
