@@ -57,7 +57,7 @@
       <div v-if="completed.length > 0 && showComplete">
         <p class="status">Completed tasks: {{ completedPercentage }}</p>
         <transition-group name="todo-item" tag="ul" class="todo-list archived">
-          <li v-for="(item, index) in completed" v-bind:key="item.title">
+          <li v-for="item in completed" v-bind:key="item.title">
             <input
               class="todo-checkbox"
               v-bind:id="'item_' + item.id"
